@@ -28,7 +28,7 @@ module.exports = [
     children: prefix("procedures", [
       "",
       "setup-new-project",
-      "testing-guideline",
+      "test-procedures",
     ])
   },
   {
