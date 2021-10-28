@@ -1,10 +1,10 @@
 {
-  "title": "BinarCode Guidelines",
-  "url": "https://www.binarcode.com/",
+  "title": "Legacy Guidelines",
+  "url": "https://www.givelegacy.com/",
   "logo": {
-    "light": "/logo-dark.svg",
-    "dark": "/logo.png"
+    "light": "https://29g8r21u7e42296h0r3nhelp-wpengine.netdna-ssl.com/wp-content/uploads/2020/03/Secondary.svg",
+    "dark": "https://29g8r21u7e42296h0r3nhelp-wpengine.netdna-ssl.com/wp-content/uploads/2020/03/Secondary.svg"
   },
-  "github": "BinarCode/guidelines.binarcode.com",
-  "twitter": "@binar_code"
+  "github": "givelegacy/dashboard-revamp/pulls",
+  "twitter": "@legacy"
 }
