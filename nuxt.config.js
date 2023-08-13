@@ -11,6 +11,6 @@ export default theme({
     '@nuxtjs/gtm',
   ],
   gtm: {
-    id: 'G-T3S2WB57KE',
+    id: 'G-Y71X62T40N',
   }
 })
