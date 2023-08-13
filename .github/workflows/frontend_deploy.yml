@@ -1,0 +1,44 @@
+name: Frontend Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Set branch-based environment variables
+        uses: iamtheyammer/branch-env-vars@v1.2.1
+        with:
+          bevOverwrite: true
+          SERVER_IP: |
+            main:${{ secrets.SERVER_IP }}
+          SERVER_BASE: |
+            main:pbx-staging.net/frontend
+          BUILD_CMD: |
+            main:build:staging
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Add SSH key to known hosts
+        run: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+      - name: Install dependencies
+        run: npm install
+      - name: Build assets
+        run: npm run $BUILD_CMD
+        env:
+          PUBLIC_API_URL: "https://api.binarcode.com"
+      - name: Copy assets to server
+        run: rsync -r --delete ./dist forge@$SERVER_IP:$SERVER_BASE/
+      - name: Trigger forge deployment
+        run: curl ${{secrets.DEPLOYMENT_TRIGGER_URL}}
