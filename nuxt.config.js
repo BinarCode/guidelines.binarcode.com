@@ -6,5 +6,11 @@ export default theme({
   },
   content: {
     liveEdit: false
+  },
+  modules: [
+    '@nuxtjs/gtm',
+  ],
+  gtm: {
+    id: 'G-T3S2WB57KE',
   }
 })
