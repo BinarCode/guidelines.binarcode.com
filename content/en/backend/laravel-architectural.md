@@ -17,8 +17,8 @@ This is how the application folder structure looks like for the domains:
 
 ```markdown
 - app
-  - Domains
-    - Posts
+  - Domain
+    - Post
         - Actions
             ApprovePostAction.php
             ...
@@ -167,7 +167,7 @@ Let's start with [the technique](https://dev.to/rocksheep/cleaner-models-with-la
 The Builder class should extend the main eloquent builder: 
 
 ```php
-namespace App\Domains\Posts\QueryBuilders;
+namespace App\Domains\Post\QueryBuilders;
 
 use Illuminate\Database\Eloquent\Builder;
 
