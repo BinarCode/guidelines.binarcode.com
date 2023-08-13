@@ -25,7 +25,7 @@ jobs:
           SERVER_BASE: |
             main:guidelines.binarcode.com
           BUILD_CMD: |
-            main:build:staging
+            main:generate
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.7.0
         with:
