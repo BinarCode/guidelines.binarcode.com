@@ -23,7 +23,7 @@ jobs:
           SERVER_IP: |
             main:${{ secrets.SERVER_IP }}
           SERVER_BASE: |
-            main:pbx-staging.net/frontend
+            main:guidelines.binarcode.com
           BUILD_CMD: |
             main:build:staging
       - name: Setup SSH
